@@ -22,10 +22,7 @@ function preload() {
     loadSVG("./Svgs/shapes/66.svg"),
     loadSVG("./Svgs/shapes/71.svg"),
   ]
-}
-
-function preload() {
-  lettere_svg = [
+   lettere_svg = [
     loadSVG("./Svgs/letters/字母à.svg"),
     loadSVG("./Svgs/letters/字母B.svg"),
     loadSVG("./Svgs/letters/字母E.svg"),
@@ -36,16 +33,18 @@ function preload() {
   ]
 }
 
+
 function setup() {
   createCanvas(400, 400, SVG);
   addDownloadButton();
-
-
   noLoop(); // Opzionale
 }
 
 function draw() {
   clear(); // Non cancellare!
-  console.log(svg)
-  image(lettere_svg,0,0)
+  //console.log(svg)
+  //image(lettere_svg,0,0)
+
+  const randomSvg = random(svg)
+  image(randomSvg, 0, 0, 100, 100)
 }
