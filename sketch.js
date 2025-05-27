@@ -1,5 +1,5 @@
-/** @type {SVGImage[]} */
-let lettere_svg = [];
+/** @type {SVGImage} */
+let lettere_A,lettere_B,lettere_E,lettere_I,lettere_L,lettere_R,lettere_T;
  
 /** @type {SVGImage[]} */
 let forme_svg = [];
@@ -21,17 +21,16 @@ function preload() {
     loadSVG("./Svgs/shapes/13.svg"),
     loadSVG("./Svgs/shapes/14.svg"),
     loadSVG("./Svgs/shapes/15.svg"),
-  ]
-   lettere_svg = [
-    loadSVG("./Svgs/letters/字母à.svg"),
-    loadSVG("./Svgs/letters/字母B.svg"),
-    loadSVG("./Svgs/letters/字母E.svg"),
-    loadSVG("./Svgs/letters/字母I.svg"),
-    loadSVG("./Svgs/letters/字母L.svg"),
-    loadSVG("./Svgs/letters/字母R.svg"),
-    loadSVG("./Svgs/letters/字母T.svg"),
-  ]
+  ] 
+   lettere_A = loadSVG("./Svgs/letters/字母à.svg");
+   lettere_B = loadSVG("./Svgs/letters/字母B.svg");
+   lettere_E = loadSVG("./Svgs/letters/字母E.svg");
+   lettere_I = loadSVG("./Svgs/letters/字母I.svg");
+   lettere_L = loadSVG("./Svgs/letters/字母L.svg");
+   lettere_R = loadSVG("./Svgs/letters/字母R.svg");
+   lettere_T = loadSVG("./Svgs/letters/字母T.svg");
 }
+
 
 
 function setup() {
@@ -45,13 +44,18 @@ function draw() {
   clear(); // Non cancellare!
   
   let randomsfondo = random (forme_svg);
- 
-
   fillSVG(randomsfondo,"red");
+  image(randomsfondo, 50,50, 100, 100);
   image(randomsfondo, width/2,height/2, 100, 100);
+  image(randomsfondo, width-50,height-50, 100, 100);
 
-  let randominmezzo = random(lettere_svg);
-  fillSVG(randominmezzo,"green");
-  image(randominmezzo, width/2,height/2, 100, 100);
-
+  let randomsopra = lettere_A,lettere_B,lettere_E,lettere_I,lettere_L,lettere_R,lettere_T;
+  fillSVG(randomsopra,"green");
+  image(lettere_L, 50,50, 100, 100);
+  image(lettere_I, width/2,height/2, 100, 100);
+  image(lettere_B, width/2,height/2, 100, 100);
+  image(lettere_E, width/2,height/2, 100, 100);
+  image(lettere_R, width/2,height/2, 100, 100);
+  image(lettere_T, width/2,height/2, 100, 100);
+  image(lettere_A, width/2,height/2, 100, 100);
 }
