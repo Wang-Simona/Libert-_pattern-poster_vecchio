@@ -46,16 +46,18 @@ function draw() {
   let randomsfondo = random (forme_svg);
   fillSVG(randomsfondo,"red");
   image(randomsfondo, 50,50, 100, 100);
+  image(randomsfondo, width-50,50, 100, 100);
   image(randomsfondo, width/2,height/2, 100, 100);
+  image(randomsfondo, 50,height-50, 100, 100);
   image(randomsfondo, width-50,height-50, 100, 100);
 
-  let randomsopra = lettere_A,lettere_B,lettere_E,lettere_I,lettere_L,lettere_R,lettere_T;
-  fillSVG(randomsopra,"green");
-  image(lettere_L, 50,50, 100, 100);
-  image(lettere_I, width/2,height/2, 100, 100);
-  image(lettere_B, width/2,height/2, 100, 100);
-  image(lettere_E, width/2,height/2, 100, 100);
-  image(lettere_R, width/2,height/2, 100, 100);
-  image(lettere_T, width/2,height/2, 100, 100);
-  image(lettere_A, width/2,height/2, 100, 100);
+  //let randomsopra = lettere_A,lettere_B,lettere_E,lettere_I,lettere_L,lettere_R,lettere_T;
+  //fillSVG(randomsopra,"green");
+  image(lettere_L, width/4-50,height/3-50, 100, 100);
+  image(lettere_I, width/4+50,height/3-50, 100, 100);
+  image(lettere_B, width/4+50,height/3+50, 100, 100);
+  image(lettere_E, width/4+150,height/3+50, 100, 100);
+  image(lettere_R, width/4+250,height/3+50, 100, 100);
+  image(lettere_T, width/4+150,height/3+150, 100, 100);
+  image(lettere_A, width/4+250,height/3+150, 100, 100);
 }
