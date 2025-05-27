@@ -18,7 +18,7 @@ function preload() {
     loadSVG("./Svgs/shapes/46.svg")
     loadSVG("./Svgs/shapes/51.svg")
     loadSVG("./Svgs/shapes/56.svg")
-    loadSVG("./Svgs/shapes/60.svg")
+    loadSVG("./Svgs/shapes/61.svg")
     loadSVG("./Svgs/shapes/66.svg")
     loadSVG("./Svgs/shapes/71.svg")
     
