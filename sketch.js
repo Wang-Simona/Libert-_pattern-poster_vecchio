@@ -44,7 +44,9 @@ function draw() {
   clear(); // Non cancellare!
   //console.log(svg)
   //image(lettere_svg,0,0)
-
-  const randomSvg = random(svg)
-  image(randomSvg, 0, 0, 100, 100)
+ /** @type {SVGImage} */
+  const random_Svg = random(forme_svg)
+  image(random_Svg, 100, 100, 100, 100)
+  image(random_Svg, 0, 0, 100, 100)
+  image(random_Svg, 200, 200, 100, 100)
 }
