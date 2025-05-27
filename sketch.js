@@ -66,15 +66,14 @@ function draw() {
   // image(randomsfondo, 50, height - 50, 100, 100);
   // image(randomsfondo, width - 50, height - 50, 100, 100);
 
-  // //let randomsopra = lettere_A,lettere_B,lettere_E,lettere_I,lettere_L,lettere_R,lettere_T;
-  // //fillSVG(randomsopra,"green");
-  // image(lettere_L, width / 4 - 50, height / 3 - 60, 100, 100);
-  // image(lettere_I, width / 4 + 50, height / 3 - 60, 100, 100);
-  // image(lettere_B, width / 4 + 50, height / 2, 100, 100);
-  // image(lettere_E, width / 4 + 150, height / 2, 100, 100);
-  // image(lettere_R, width / 4 + 250, height / 2, 100, 100);
-  // image(lettere_T, width / 4 + 150, height - 60, 100, 100);
-  // image(lettere_A, width / 4 + 250, height - 60, 100, 100);
+  
+   image(lettere_L, 0, 40, 100, 100);
+   image(lettere_I, width / 4, 40, 100, 100);
+   image(lettere_B, width / 4, height/2-50, 100, 100);
+   image(lettere_E, width/2, height/2-50, 100, 100);
+   image(lettere_R, width-100, height/2-50, 100, 100);
+   image(lettere_T, width/2, height-140, 100, 100);
+   image(lettere_A, width-100, height-140, 100, 100);
 }
 
 /**
