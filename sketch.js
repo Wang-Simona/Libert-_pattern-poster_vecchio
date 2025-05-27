@@ -37,16 +37,21 @@ function preload() {
 function setup() {
   createCanvas(400, 400, SVG);
   addDownloadButton();
+  imageMode(CENTER)
   noLoop(); // Opzionale
 }
 
 function draw() {
   clear(); // Non cancellare!
-  //console.log(svg)
-  //image(lettere_svg,0,0)
- /** @type {SVGImage} */
-  const random_Svg = random(forme_svg)
-  image(random_Svg, 100, 100, 100, 100)
-  image(random_Svg, 0, 0, 100, 100)
-  image(random_Svg, 200, 200, 100, 100)
+  
+  let randomsfondo = random (forme_svg);
+ 
+
+  fillSVG(randomsfondo,"red");
+  image(randomsfondo, width/2,height/2, 100, 100);
+
+  let randominmezzo = random(lettere_svg);
+  fillSVG(randominmezzo,"green");
+  image(randominmezzo, width/2,height/2, 100, 100);
+
 }
