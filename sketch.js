@@ -52,19 +52,12 @@ function draw() {
     10
   );
 
-  for (let s of squares) {
-    let randomShape = random(forme_svg);
+for (let s of squares) {
+  let randomShape = random(forme_svg);
 
-    image(randomShape, s.x, s.y, s.w, s.h);
-  }
-
-  // let randomsfondo = random(forme_svg);
-  // // fillSVG(randomsfondo,"red");
-  // image(randomsfondo, 50, 50, 100, 100);
-  // image(randomsfondo, width - 50, 50, 100, 100);
-  // image(randomsfondo, width / 2, height / 2, 100, 100);
-  // image(randomsfondo, 50, height - 50, 100, 100);
-  // image(randomsfondo, width - 50, height - 50, 100, 100);
+  applyRandomColorToSVG(randomShape); // 添加内部颜色修改
+  image(randomShape, s.x, s.y, s.w, s.h);
+}
 
   
    image(lettere_L, 0, 40, 100, 100);
@@ -155,4 +148,32 @@ function generateIrregularGrid(x, y, w, h, rows, cols, sizes, gap = 0) {
   }
 
   return /** @type {Square[]} */ (squares);
+}
+
+
+//超绝花里胡哨颜色
+function randomColorHex() {
+  const colors = [
+    "#FCC800", // 黄
+    "#0B318F", // 蓝
+    "#00A29A", // 绿
+    "#EB6100", // 橙
+    "#66B5E6", // 浅蓝
+    "original" // 保留原始颜色
+  ];
+  return random(colors);
+}
+
+function applyRandomColorToSVG(svg) {
+  if (!svg || !svg.elt) return;
+
+  const color = randomColorHex(); // 一个整体颜色，包含 "original"
+
+  if (color === "original") return; // 保持原样
+
+  const elements = svg.elt.querySelectorAll("path, rect, circle, polygon, ellipse");
+
+  for (let el of elements) {
+    el.setAttribute("fill", color);
+  }
 }
