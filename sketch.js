@@ -40,7 +40,7 @@ function setup() {
 function draw() {
   clear(); // Non cancellare!
 
-  const margine = 30;
+  const margine = 20;
   const squares = generateIrregularGrid(
     margine,
     margine,
@@ -49,7 +49,7 @@ function draw() {
     10,
     10,
     [1, 2],
-    10
+    5
   );
 
 for (let s of squares) {
@@ -58,16 +58,17 @@ for (let s of squares) {
   applyRandomColorToSVG(randomShape); // 添加内部颜色修改
   image(randomShape, s.x, s.y, s.w, s.h);
 }
-
-  let img_l_h = width/lettere_L.width * lettere_L.height
-   image(lettere_L, width/2,height/2, width*0.15, img_l_h);
-  let img_i_h = width/lettere_L.width * lettere_L.height 
-   image(lettere_I, width / 4, 40, width*0.15, img_i_h);
-   image(lettere_B, width / 4, height/2-50, 100, 100);
-   image(lettere_E, width/2, height/2-50, 100, 100);
-   image(lettere_R, width-100, height/2-50, 100, 100);
-   image(lettere_T, width/2, height-140, 100, 100);
-   image(lettere_A, width-100, height-140, 100, 100);
+  push();
+  imageMode(CENTER);
+  let lette_h = width*0.15/200 * 200
+   image(lettere_L, (width-40)/10, (height-40)/6.5, width*0.15, lette_h);
+   image(lettere_I, (width-40)/3, (height-40)/6.5, width*0.15, lette_h);
+   image(lettere_B, (width-40)/3, (height-40)/2, width*0.15, lette_h);
+   image(lettere_E, (width-40)/1.5, (height-40)/2, width*0.15, lette_h);
+   image(lettere_R, (width-40)*0.95, (height-40)/2, width*0.15, lette_h);
+   image(lettere_T, (width-40)/1.5, (height-40)/1.15, width*0.15, lette_h);
+   image(lettere_A, (width-40)*0.95, (height-40)/1.15, width*0.15, lette_h);
+  pop();
 }
 
 /**
