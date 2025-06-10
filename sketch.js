@@ -60,7 +60,7 @@ for (let s of squares) {
 }
   push();
   imageMode(CENTER);
-  let lette_h = width*0.15/200 * 200
+  let lette_h = width/200 * 200
    image(lettere_L, (width-40)/10, (height-40)/6.5, width*0.15, lette_h);
    image(lettere_I, (width-40)/3, (height-40)/6.5, width*0.15, lette_h);
    image(lettere_B, (width-40)/3, (height-40)/2, width*0.15, lette_h);
