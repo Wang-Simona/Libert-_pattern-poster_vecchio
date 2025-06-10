@@ -32,7 +32,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(400, 400, SVG);
+  createCanvas(windowWidth,windowHeight,SVG);
   addDownloadButton();
   noLoop(); // Opzionale
 }
@@ -46,8 +46,8 @@ function draw() {
     margine,
     width - margine * 2,
     height - margine * 2,
-    5,
-    5,
+    10,
+    10,
     [1, 2],
     10
   );
@@ -59,9 +59,10 @@ for (let s of squares) {
   image(randomShape, s.x, s.y, s.w, s.h);
 }
 
-  
-   image(lettere_L, 0, 40, 100, 100);
-   image(lettere_I, width / 4, 40, 100, 100);
+  let img_l_h = width/lettere_L.width * lettere_L.height
+   image(lettere_L, width/2,height/2, width*0.15, img_l_h);
+  let img_i_h = width/lettere_L.width * lettere_L.height 
+   image(lettere_I, width / 4, 40, width*0.15, img_i_h);
    image(lettere_B, width / 4, height/2-50, 100, 100);
    image(lettere_E, width/2, height/2-50, 100, 100);
    image(lettere_R, width-100, height/2-50, 100, 100);
@@ -176,4 +177,8 @@ function applyRandomColorToSVG(svg) {
   for (let el of elements) {
     el.setAttribute("fill", color);
   }
+}
+
+function windowResized() {
+resizeCanvas(windowWidth,windowHeight);
 }
