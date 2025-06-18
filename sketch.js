@@ -4,6 +4,15 @@ let lettere_A, lettere_B, lettere_E, lettere_I, lettere_L, lettere_R, lettere_T;
 /** @type {SVGImage[]} */
 let forme_svg = [];
 
+let colori = [
+  "#FCC800", // 黄
+  "#0B318F", // 蓝
+  "#00A29A", // 绿
+  "#EB6100", // 橙
+  "#66B5E6", // 浅蓝
+  //  "original(forme_svg)" // 保留图案原始颜色
+];
+
 function preload() {
   forme_svg = [
     loadSVG("./Svgs/shapes/1.svg"),
@@ -32,7 +41,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(windowWidth,windowHeight,SVG);
+  createCanvas(windowWidth, windowHeight, SVG);
   addDownloadButton();
   noLoop(); // Opzionale
 }
@@ -40,34 +49,75 @@ function setup() {
 function draw() {
   clear(); // Non cancellare!
 
-  const margine = 20;
+  const margine = 40;
+  const box_w = width - margine * 2;
+  const box_h = height - margine * 2;
+
   const squares = generateIrregularGrid(
     margine,
     margine,
-    width - margine * 2,
-    height - margine * 2,
+    box_w,
+    box_h,
     10,
     10,
     [1, 2],
     5
   );
 
-for (let s of squares) {
-  let randomShape = random(forme_svg);
+  for (let s of squares) {
+    let randomShape = random(forme_svg);
+    image(randomShape, s.x, s.y, s.w, s.h);
+    let colore = random(colori);
+    fillSVG(randomShape, colore);
+  }
 
-  applyRandomColorToSVG(randomShape); // 添加内部颜色修改
-  image(randomShape, s.x, s.y, s.w, s.h);
-}
   push();
   imageMode(CENTER);
-  let lette_h = width/200 * 200
-   image(lettere_L, (width-40)/10, (height-40)/6.5, width*0.15, lette_h);
-   image(lettere_I, (width-40)/3, (height-40)/6.5, width*0.15, lette_h);
-   image(lettere_B, (width-40)/3, (height-40)/2, width*0.15, lette_h);
-   image(lettere_E, (width-40)/1.5, (height-40)/2, width*0.15, lette_h);
-   image(lettere_R, (width-40)*0.95, (height-40)/2, width*0.15, lette_h);
-   image(lettere_T, (width-40)/1.5, (height-40)/1.15, width*0.15, lette_h);
-   image(lettere_A, (width-40)*0.95, (height-40)/1.15, width*0.15, lette_h);
+  let lette_h = (width / 200) * 200;
+  let lette_w = width * 0.15;
+  image(
+    lettere_L,
+    margine + box_w / 10,
+    margine + box_h / 6.5,
+    lette_w,
+    lette_h
+  );
+  image(
+    lettere_I,
+    margine + box_w / 3,
+    margine + box_h / 6.5,
+    lette_w,
+    lette_h
+  );
+  image(lettere_B, margine + box_w / 3, margine + box_h / 2, lette_w, lette_h);
+  image(
+    lettere_E,
+    margine + box_w / 1.5,
+    margine + box_h / 2,
+    lette_w,
+    lette_h
+  );
+  image(
+    lettere_R,
+    margine + box_w * 0.95,
+    margine + box_h / 2,
+    lette_w,
+    lette_h
+  );
+  image(
+    lettere_T,
+    margine + box_w / 1.5,
+    margine + box_h / 1.15,
+    lette_w,
+    lette_h
+  );
+  image(
+    lettere_A,
+    margine + box_w * 0.95,
+    margine + box_h / 1.15,
+    lette_w,
+    lette_h
+  );
   pop();
 }
 
@@ -152,34 +202,6 @@ function generateIrregularGrid(x, y, w, h, rows, cols, sizes, gap = 0) {
   return /** @type {Square[]} */ (squares);
 }
 
-
-//超绝花里胡哨颜色
-function randomColorHex() {
-  const colors = [
-    "#FCC800", // 黄
-    "#0B318F", // 蓝
-    "#00A29A", // 绿
-    "#EB6100", // 橙
-    "#66B5E6", // 浅蓝
-    "original" // 保留原始颜色
-  ];
-  return random(colors);
-}
-
-function applyRandomColorToSVG(svg) {
-  if (!svg || !svg.elt) return;
-
-  const color = randomColorHex(); // 一个整体颜色，包含 "original"
-
-  if (color === "original") return; // 保持原样
-
-  const elements = svg.elt.querySelectorAll("path, rect, circle, polygon, ellipse");
-
-  for (let el of elements) {
-    el.setAttribute("fill", color);
-  }
-}
-
 function windowResized() {
-resizeCanvas(windowWidth,windowHeight);
+  resizeCanvas(windowWidth, windowHeight);
 }
