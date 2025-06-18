@@ -10,7 +10,6 @@ let colori = [
   "#00A29A", // 绿
   "#EB6100", // 橙
   "#66B5E6", // 浅蓝
-  //  "original(forme_svg)" // 保留图案原始颜色
 ];
 
 function preload() {
