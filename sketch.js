@@ -72,7 +72,7 @@ function draw() {
 
   push();
   imageMode(CENTER);
-  let lette_h = (width / 200) * 200;
+  let lette_h = width;
   let lette_w = width * 0.15;
   image(
     lettere_L,
